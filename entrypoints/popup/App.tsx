@@ -49,12 +49,12 @@ function App() {
 
   return (
     <>
-      <header>
+      <header style={{ maxWidth: 360, minWidth: 200 }}>
         <p style={{ fontSize: '1.5rem', textAlign: 'center', fontWeight: 'medium' }}>Color Converter</p>
         <p>This tool helps you convert colors between different color formats.</p>
       </header>
-      
-      <main>
+
+      <main style={{ maxWidth: 360, minWidth: 200 }}>
         <div>
           <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>Enter a color:</p>
         </div>
