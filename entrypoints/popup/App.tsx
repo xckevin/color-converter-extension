@@ -62,6 +62,7 @@ function App() {
           suffix={
             <ColorPicker
               defaultValue={"#ff6600"}
+              value={hex === '' ? "#ff6600" : hex}
               styles={{ popupOverlayInner: { position: 'absolute', left: '50%', transform: 'translate(-100%, -50%)' } }}
               onChangeComplete={(color) => {
                 const str = (color.toRgbString())
