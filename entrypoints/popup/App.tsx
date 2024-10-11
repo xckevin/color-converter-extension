@@ -9,16 +9,22 @@ function App() {
   const [hex, setHex] = useState('');
   const [rgb, setRgb] = useState('');
   const [hsl, setHsl] = useState('');
+  const [hsv, setHsv] = useState('');
+  const [cmyk, setCmyk] = useState('');
 
   const colorChanged4Rgb = (rgbColorString: string) => {
     setRgb(rgbColorString);
     setHex(colorConverter.rgbToHex(rgbColorString));
     setHsl(colorConverter.rgbToHslString(rgbColorString));
+    setHsv(colorConverter.rgbToHsvString(rgbColorString));
+    setCmyk(colorConverter.rgbToCmykString(rgbColorString));
   };
   const colorChanged4Rgba = (rgbaColorString: string) => {
     setRgb(rgbaColorString);
     setHex(colorConverter.rgbaToHexaString(rgbaColorString));
     setHsl(colorConverter.rgbaToHslaString(rgbaColorString));
+    setHsv(colorConverter.rgbaToHsvaString(rgbaColorString));
+    setCmyk(colorConverter.rgbaToCmykaString(rgbaColorString));
   };
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -82,6 +88,14 @@ function App() {
               colorChanged4Rgb(colorConverter.hslToRgbString(str))
             } else if (colorConverter.hslaColorRegex.test(str)) {
               colorChanged4Rgba(colorConverter.hslaToRgbaString(str))
+            } else if (colorConverter.hsvColorRegex.test(str)) {
+              colorChanged4Rgb(colorConverter.hsvToRgbString(str))
+            } else if (colorConverter.hsvaColorRegex.test(str)) {
+              colorChanged4Rgba(colorConverter.hsvaToRgbaString(str))
+            } else if (colorConverter.cmykColorRegex.test(str)) {
+              colorChanged4Rgb(colorConverter.cmykToRgbString(str))
+            } else if (colorConverter.cmykaColorRegex.test(str)) {
+              colorChanged4Rgba(colorConverter.cmykaToRgbaString(str))
             } else {
               // messageApi.error('Invalid color format')
             }
@@ -94,6 +108,8 @@ function App() {
         <Input addonBefore="RGB" value={rgb} suffix={<CopyOutlined onClick={() => { copyToClipboard(rgb) }} />} readOnly={true} defaultValue="" />
         <Input addonBefore="HEX" value={hex} suffix={<CopyOutlined onClick={() => { copyToClipboard(hex) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
         <Input addonBefore="HSL" value={hsl} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsl) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore="HSV" value={hsv} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsv) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore="CMYK" value={cmyk} suffix={<CopyOutlined onClick={() => { copyToClipboard(cmyk) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
       </main>
     </>
   );
