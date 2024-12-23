@@ -120,7 +120,7 @@ function PrefixText({ text }: { text: string }) {
   const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   return (
     <>
-      <p style={isDarkMode? {}:{}}>{text}</p>
+      <b style={isDarkMode ? {} : {}}>{text}</b>
     </>
   )
 }
