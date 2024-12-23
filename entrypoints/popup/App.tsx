@@ -106,14 +106,23 @@ function App() {
           <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>Results</p>
         </div>
         {contextHolder}
-        <Input addonBefore="RGB" value={rgb} suffix={<CopyOutlined onClick={() => { copyToClipboard(rgb) }} />} readOnly={true} defaultValue="" />
-        <Input addonBefore="HEX" value={hex} suffix={<CopyOutlined onClick={() => { copyToClipboard(hex) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
-        <Input addonBefore="HSL" value={hsl} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsl) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
-        <Input addonBefore="HSV" value={hsv} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsv) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
-        <Input addonBefore="CMYK" value={cmyk} suffix={<CopyOutlined onClick={() => { copyToClipboard(cmyk) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore={<PrefixText text="RGB" />} value={rgb} suffix={<CopyOutlined onClick={() => { copyToClipboard(rgb) }} />} readOnly={true} defaultValue="" />
+        <Input addonBefore={<PrefixText text="HEX" />} value={hex} suffix={<CopyOutlined onClick={() => { copyToClipboard(hex) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore={<PrefixText text="HSL" />} value={hsl} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsl) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore={<PrefixText text="HSV" />} value={hsv} suffix={<CopyOutlined onClick={() => { copyToClipboard(hsv) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
+        <Input addonBefore={<PrefixText text="CMYK" />} value={cmyk} suffix={<CopyOutlined onClick={() => { copyToClipboard(cmyk) }} />} readOnly={true} defaultValue="" style={{ marginTop: '8px' }} />
       </main>
     </>
   );
+}
+
+function PrefixText({ text }: { text: string }) {
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return (
+    <>
+      <p style={isDarkMode? {}:{}}>{text}</p>
+    </>
+  )
 }
 
 export default App;
