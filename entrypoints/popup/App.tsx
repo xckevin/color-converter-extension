@@ -3,6 +3,7 @@ import './App.css';
 import { colorConverter } from './color';
 import { Button, ColorPicker, Flex, Input, message } from 'antd';
 import { CopyOutlined, BgColorsOutlined } from '@ant-design/icons';
+import { i18n } from '#i18n';
 
 
 function App() {
@@ -34,14 +35,14 @@ function App() {
       return;
     }
     if (!navigator.clipboard) {
-      messageApi.error('Your browser does not support clipboard API');
+      messageApi.error(i18n.t('copyUnsupported'));
       return;
     }
     navigator.clipboard.writeText(text)
       .then(() => {
-        messageApi.success('Copied!');
+        messageApi.success(i18n.t('copied'));
       }, (err) => {
-        messageApi.warning('Copy failed');
+        messageApi.warning(i18n.t('copyFailed'));
       });
 
   };
@@ -50,13 +51,13 @@ function App() {
   return (
     <>
       <header style={{ maxWidth: 360, minWidth: 200 }}>
-        <p style={{ fontSize: '1.5rem', textAlign: 'center', fontWeight: 'medium' }}>Color Converter</p>
-        <p>This tool helps you convert colors between different color formats.</p>
+        <p style={{ fontSize: '1.5rem', textAlign: 'center', fontWeight: 'medium' }}>{i18n.t('extName')}</p>
+        <p>{i18n.t('extNote')}</p>
       </header>
 
       <main style={{ maxWidth: 360, minWidth: 200 }}>
         <div>
-          <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>Enter a color:</p>
+          <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>{i18n.t('enterColor')}</p>
         </div>
         <Input
           suffix={
@@ -103,7 +104,7 @@ function App() {
           }} />
 
         <div>
-          <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>Results</p>
+          <p style={{ fontSize: '1.2rem', textAlign: 'left' }}>{i18n.t('results')}</p>
         </div>
         {contextHolder}
         <Input addonBefore={<PrefixText text="RGB" />} value={rgb} suffix={<CopyOutlined onClick={() => { copyToClipboard(rgb) }} />} readOnly={true} defaultValue="" />

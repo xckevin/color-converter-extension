@@ -1,2 +1,8 @@
 extName: color-converter
 extDescription: A color converter tool
+extNote: This tool helps you convert colors between different color formats.
+enterColor: "Enter a color:"
+results: "Results:"
+copyUnsupported: "Your browser does not support clipboard API!"
+copied: "Copied!"
+copyFailed: "Copy failed!"
