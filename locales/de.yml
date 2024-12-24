@@ -1,0 +1,8 @@
+extName: Farbkonverter
+extDescription: Ein Farbkonvertierungswerkzeug
+extNote: Dieses Werkzeug hilft Ihnen, Farben zwischen verschiedenen Farbformaten zu konvertieren.
+enterColor: "Geben Sie eine Farbe ein:"
+results: "Ergebnisse:"
+copyUnsupported: "Ihr Browser unterstützt die Clipboard-API nicht!"
+copied: "Kopiert!"
+copyFailed: "Kopieren fehlgeschlagen!"

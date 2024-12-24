@@ -1,0 +1,8 @@
+extName: Conversor de colores
+extDescription: Una herramienta de conversión de colores
+extNote: Esta herramienta te ayuda a convertir colores entre diferentes formatos de color.
+enterColor: "Ingrese un color:"
+results: "Resultados:"
+copyUnsupported: "Tu navegador no soporta la API del portapapeles!"
+copied: "Copiado!"
+copyFailed: "Copia fallida!"
